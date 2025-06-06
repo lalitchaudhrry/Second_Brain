@@ -19,7 +19,7 @@ export default function FlashcardPage() {
     setFlashcards([]);
 
     try {
-      const response = await fetch("http://localhost:5000/api/generate-flashcards", {
+      const response = await fetch("https://second-brain-q4w4.onrender.com/api/generate-flashcards", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: input }),

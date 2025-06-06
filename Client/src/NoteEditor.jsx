@@ -19,7 +19,7 @@ export default function NoteEditor() {
   const fetchNotes = async () => {
     setLoadingNotes(true);
     try {
-      const res = await fetch("http://localhost:5000/api/notes");
+      const res = await fetch("https://second-brain-q4w4.onrender.com/api/notes");
       const data = await res.json();
       setSavedNotes(data.notes || []);
     } catch (err) {
@@ -38,7 +38,7 @@ export default function NoteEditor() {
     setLoadingSave(true);
     setError("");
     try {
-      const response = await fetch("http://localhost:5000/api/save-note", {
+      const response = await fetch("https://second-brain-q4w4.onrender.com/api/save-note", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: value.trim() }),
@@ -62,7 +62,7 @@ export default function NoteEditor() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this note?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      const res = await fetch(`https://second-brain-q4w4.onrender.com/api/notes/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -100,7 +100,7 @@ export default function NoteEditor() {
     setLoadingSave(true);
     setError("");
     try {
-      const res = await fetch(`http://localhost:5000/api/notes/${editingId}`, {
+      const res = await fetch(`https://second-brain-q4w4.onrender.com/api/notes/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: value.trim() }),
